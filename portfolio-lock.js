@@ -8,8 +8,7 @@ class PortfolioLock {
 
   init() {
     // Check if already unlocked in this session
-    // Comment this line for testing: sessionStorage.getItem(this.sessionKey) === 'true'
-    if (false) { // Changed to false for testing - set back to: sessionStorage.getItem(this.sessionKey) === 'true'
+    if (sessionStorage.getItem(this.sessionKey) === 'true') {
       this.unlockPortfolio(false); // Unlock without animation
     } else {
       this.setupEventListeners();
@@ -18,28 +17,11 @@ class PortfolioLock {
 
   setupEventListeners() {
     const form = document.getElementById('unlock-form');
-    const messageCheckbox = document.getElementById('wants-message');
-    const messageGroup = document.getElementById('message-group');
 
     // Form submission
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       this.handleSubmit(e);
-    });
-
-    // Message checkbox toggle
-    messageCheckbox.addEventListener('change', () => {
-      if (messageCheckbox.checked) {
-        messageGroup.style.display = 'block';
-        setTimeout(() => {
-          messageGroup.style.opacity = '1';
-        }, 10);
-      } else {
-        messageGroup.style.opacity = '0';
-        setTimeout(() => {
-          messageGroup.style.display = 'none';
-        }, 300);
-      }
     });
 
     // Input focus effects
@@ -80,6 +62,9 @@ class PortfolioLock {
     try {
       // Send visitor data (name only)
       await this.sendVisitorData(name, 'No message provided');
+      
+      // Mark as unlocked in session
+      sessionStorage.setItem(this.sessionKey, 'true');
       
       // Trigger glass shatter animation
       this.triggerGlassShatter();
