@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>Product Manager Portfolio</title>
+  <title>Deepika Dubey Portfolio</title>
   <meta name="description" content="Deepika Dubey's portfolio: Product Management, Software Engineering, Android, UI/UX, and more. Explore projects, skills, certifications, and story.">
   <meta property="og:title" content="Deepika Dubey | Product Manager Portfolio">
   <meta property="og:description" content="Explore Deepika Dubey's journey in product management, software engineering, and design. Projects, skills, certifications, and more.">
@@ -16,9 +16,63 @@
   <meta name="twitter:image" content="ProfilePhoto.jpeg">
   <link rel="icon" type="image/jpeg" href="ProfilePhoto.jpeg">
   <link rel="stylesheet" href="styles.css">
+  <script src="portfolio-lock.js" defer></script>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Portfolio Lock Screen -->
+    <div id="portfolio-lock" class="portfolio-lock">
+      <div class="lock-overlay"></div>
+      <div class="lock-container">
+        <div class="lock-content">
+          <div class="lock-icon">🔒</div>
+          <h2 class="lock-title">Portfolio Locked</h2>
+          <p class="lock-subtitle">Enter your details to unlock Deepika's portfolio</p>
+          
+          <form id="unlock-form" class="unlock-form">
+            <div class="form-group">
+              <input type="text" id="visitor-name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="visitor-email" placeholder="Your Email" required>
+            </div>
+            
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="wants-message">
+                <span class="checkmark"></span>
+                Do you want to leave a message for me?
+              </label>
+            </div>
+            
+            <div class="form-group message-group" id="message-group" style="display: none;">
+              <textarea id="visitor-message" placeholder="Your message for Deepika..." rows="3"></textarea>
+            </div>
+            
+            <button type="submit" class="unlock-btn">
+              <span class="btn-text">Unlock Portfolio</span>
+              <span class="btn-loader" style="display: none;">Sending...</span>
+            </button>
+          </form>
+          
+          <p class="lock-note">✨ Your information helps me understand my visitors better</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div id="main-content" class="main-content" style="display: none;">
+      <div class="glass-shatter">
+        <div class="piece1"></div>
+        <div class="piece2"></div>
+        <div class="piece3"></div>
+        <div class="piece4"></div>
+        <div class="piece5"></div>
+        <div class="piece6"></div>
+        <div class="piece7"></div>
+        <div class="piece8"></div>
+      </div>
+      <div class="screen-crack"></div>
+      <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-container">
       <a href="#home" class="logo" role="banner">P<span style="color:#2a7ae2; font-weight:bold;">&#123; &#125;</span>Portfolio</a>

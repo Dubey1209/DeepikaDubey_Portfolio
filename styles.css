@@ -7059,12 +7059,617 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
 .experience-read-more span {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-
 .experience-read-more:hover span {
   transform: translateX(5px);
 }
 
-/* Modal Styles */
+/* Portfolio Lock Screen */
+.portfolio-lock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(135deg, rgba(42, 122, 226, 0.1) 0%, rgba(162, 89, 255, 0.1) 100%);
+}
+
+.lock-container {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1rem;
+  max-width: 380px;
+  width: 85%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  animation: lockFloat 3s ease-in-out infinite;
+}
+
+@keyframes lockFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.lock-content {
+  text-align: center;
+  color: white;
+}
+
+.lock-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: lockPulse 2s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.lock-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(45deg, #fff, #a3c9f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.lock-subtitle {
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.4;
+}
+
+.unlock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2a7ae2;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(42, 122, 226, 0.3);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.checkbox-group {
+  text-align: left;
+  margin: 1rem 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  gap: 0.8rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: #2a7ae2;
+  border-color: #2a7ae2;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.unlock-btn {
+  background: linear-gradient(45deg, #2a7ae2, #a259ff);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.unlock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(42, 122, 226, 0.4);
+}
+
+.unlock-btn:active {
+  transform: translateY(0);
+}
+
+.btn-loader {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.lock-note {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.message-group {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glass Shatter Animation - Ultra Fast & Visible */
+.glass-shatter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9998;
+  pointer-events: none;
+  display: none;
+}
+
+.glass-shatter.active {
+  display: block;
+}
+
+/* Main glass pieces - smaller and more realistic */
+.glass-shatter::before,
+.glass-shatter::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.15) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  box-shadow: 0 0 60px rgba(255,255,255,0.5);
+}
+
+.glass-shatter.active::before {
+  animation: shatter1 4.5s ease-out forwards;
+}
+
+.glass-shatter.active::after {
+  animation: shatter2 4.5s ease-out forwards 0.1s;
+}
+
+/* Small glass pieces - more realistic fragments */
+.glass-shatter .piece1,
+.glass-shatter .piece2,
+.glass-shatter .piece3,
+.glass-shatter .piece4,
+.glass-shatter .piece5,
+.glass-shatter .piece6,
+.glass-shatter .piece7,
+.glass-shatter .piece8 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  opacity: 0;
+}
+
+.glass-shatter.active .piece1 {
+  animation: shatter3 4.5s ease-out forwards 0.2s;
+}
+
+.glass-shatter.active .piece2 {
+  animation: shatter4 4.5s ease-out forwards 0.3s;
+}
+
+.glass-shatter.active .piece3 {
+  animation: shatter5 4.5s ease-out forwards 0.4s;
+}
+
+.glass-shatter.active .piece4 {
+  animation: shatter6 4.5s ease-out forwards 0.5s;
+}
+
+.glass-shatter.active .piece5 {
+  animation: shatter7 4.5s ease-out forwards 0.6s;
+}
+
+.glass-shatter.active .piece6 {
+  animation: shatter8 4.5s ease-out forwards 0.7s;
+}
+
+.glass-shatter.active .piece7 {
+  animation: shatter9 4.5s ease-out forwards 0.8s;
+}
+
+.glass-shatter.active .piece8 {
+  animation: shatter10 4.5s ease-out forwards 0.9s;
+}
+
+@keyframes shatter1 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  15% {
+    clip-path: polygon(0 0, 65% 0, 45% 100%, 0 100%);
+    opacity: 0.95;
+    transform: translate(-8px, -5px) rotate(-3deg) scale(0.98);
+  }
+  40% {
+    clip-path: polygon(0 0, 40% 0, 25% 100%, 0 100%);
+    opacity: 0.8;
+    transform: translate(-20px, -30px) rotate(-8deg) scale(0.95);
+  }
+  70% {
+    clip-path: polygon(0 0, 25% 0, 15% 100%, 0 100%);
+    opacity: 0.4;
+    transform: translate(-60px, -100px) rotate(-15deg) scale(0.85);
+  }
+  100% {
+    clip-path: polygon(0 0, 15% 0, 8% 100%, 0 100%);
+    opacity: 0;
+    transform: translate(-100px, -150px) rotate(-20deg) scale(0.75);
+  }
+}
+
+@keyframes shatter2 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  20% {
+    clip-path: polygon(35% 0, 100% 0, 100% 100%, 65% 100%);
+    opacity: 0.95;
+    transform: translate(8px, -5px) rotate(3deg) scale(0.98);
+  }
+  50% {
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 75% 100%);
+    opacity: 0.7;
+    transform: translate(20px, -30px) rotate(8deg) scale(0.95);
+  }
+  100% {
+    clip-path: polygon(85% 0, 100% 0, 100% 100%, 92% 100%);
+    opacity: 0;
+    transform: translate(100px, -150px) rotate(20deg) scale(0.75);
+  }
+}
+
+@keyframes shatter3 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.9;
+    transform: translate(0, 0) scale(1);
+  }
+  35% {
+    clip-path: polygon(10% 10%, 80% 8%, 85% 85%, 8% 80%);
+    opacity: 0.7;
+    transform: translate(12px, 12px) scale(0.92) rotate(6deg);
+  }
+  100% {
+    clip-path: polygon(15% 15%, 70% 15%, 70% 70%, 15% 70%);
+    opacity: 0;
+    transform: translate(120px, 120px) scale(0.7) rotate(25deg);
+  }
+}
+
+@keyframes shatter4 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.8;
+    transform: translate(0, 0) scale(1);
+  }
+  35% {
+    clip-path: polygon(3% 3%, 92% 12%, 82% 82%, 8% 88%);
+    opacity: 0.6;
+    transform: translate(-12px, 12px) scale(0.88) rotate(-6deg);
+  }
+  100% {
+    clip-path: polygon(20% 20%, 65% 20%, 65% 65%, 20% 65%);
+    opacity: 0;
+    transform: translate(-120px, 120px) scale(0.6) rotate(-25deg);
+  }
+}
+
+@keyframes shatter5 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.7;
+    transform: translate(0, 0) scale(1);
+  }
+  35% {
+    clip-path: polygon(30% 30%, 60% 30%, 60% 60%, 30% 60%);
+    opacity: 0.5;
+    transform: translate(0, -20px) scale(0.8);
+  }
+  100% {
+    clip-path: polygon(35% 35%, 55% 35%, 55% 55%, 35% 55%);
+    opacity: 0;
+    transform: translate(0, -200px) scale(0.45);
+  }
+}
+
+@keyframes shatter6 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.6;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    clip-path: polygon(20% 8%, 70% 20%, 65% 70%, 15% 60%);
+    opacity: 0.5;
+    transform: translate(15px, -10px) scale(0.85) rotate(10deg);
+  }
+  100% {
+    clip-path: polygon(25% 12%, 65% 12%, 65% 75%, 25% 75%);
+    opacity: 0;
+    transform: translate(140px, -100px) scale(0.55) rotate(35deg);
+  }
+}
+
+@keyframes shatter7 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.5;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    clip-path: polygon(8% 20%, 55% 8%, 45% 65%, 5% 60%);
+    opacity: 0.4;
+    transform: translate(-15px, -10px) scale(0.82) rotate(-10deg);
+  }
+  100% {
+    clip-path: polygon(12% 25%, 60% 25%, 60% 75%, 12% 75%);
+    opacity: 0;
+    transform: translate(-140px, -100px) scale(0.5) rotate(-35deg);
+  }
+}
+
+@keyframes shatter8 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.5;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    clip-path: polygon(40% 5%, 85% 15%, 75% 60%, 25% 50%);
+    opacity: 0.4;
+    transform: translate(12px, -15px) scale(0.78) rotate(8deg);
+  }
+  100% {
+    clip-path: polygon(45% 8%, 75% 8%, 75% 60%, 45% 60%);
+    opacity: 0;
+    transform: translate(160px, -80px) scale(0.45) rotate(30deg);
+  }
+}
+
+@keyframes shatter9 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    clip-path: polygon(15% 40%, 50% 5%, 40% 75%, 5% 65%);
+    opacity: 0.3;
+    transform: translate(-12px, -15px) scale(0.75) rotate(-8deg);
+  }
+  100% {
+    clip-path: polygon(20% 45%, 50% 45%, 50% 70%, 20% 70%);
+    opacity: 0;
+    transform: translate(-160px, -80px) scale(0.4) rotate(-30deg);
+  }
+}
+
+@keyframes shatter10 {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    clip-path: polygon(45% 45%, 55% 45%, 55% 55%, 45% 55%);
+    opacity: 0.3;
+    transform: translate(0, -22px) scale(0.7);
+  }
+  100% {
+    clip-path: polygon(48% 48%, 52% 48%, 52% 52%, 48% 52%);
+    opacity: 0;
+    transform: translate(0, -220px) scale(0.35);
+  }
+}
+
+/* Screen crack overlay - Enhanced */
+.screen-crack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9997;
+  pointer-events: none;
+  display: none;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.9) 100%);
+}
+
+.screen-crack.active {
+  display: block;
+  animation: crackReveal 4.0s ease-out forwards;
+}
+
+@keyframes crackReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+    filter: blur(0px);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(1px);
+  }
+  40% {
+    opacity: 0.8;
+    transform: scale(1.02);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+    filter: blur(0px);
+  }
+}
+
+/* Fine crack lines */
+.screen-crack::before,
+.screen-crack::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 49%, rgba(255,255,255,0.3) 50%, transparent 51%);
+  opacity: 0;
+}
+
+.screen-crack.active::before {
+  animation: crackLine1 3.5s ease-out forwards;
+}
+
+.screen-crack.active::after {
+  animation: crackLine2 3.5s ease-out forwards 0.2s;
+}
+
+@keyframes crackLine1 {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3) rotate(90deg);
+  }
+}
+
+@keyframes crackLine2 {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(135deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.3) rotate(180deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .lock-container {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .lock-title {
+    font-size: 2rem;
+  }
+  
+  .lock-subtitle {
+    font-size: 1rem;
+  }
+}
+
 .experience-modal {
   display: none;
   position: fixed;
