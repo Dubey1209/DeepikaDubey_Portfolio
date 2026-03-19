@@ -147,22 +147,18 @@ class PortfolioLock {
     const screenCrack = document.querySelector('.screen-crack');
     const lockScreen = document.querySelector('.portfolio-lock');
     
-    // Activate screen crack first
+    // INSTANT screen shake AND glass shatter TOGETHER - no gap
+    lockScreen.style.animation = 'instantShake 0.8s ease-out';
+    glassShatter.classList.add('active');
     screenCrack.classList.add('active');
-    
-    // Then glass shatter
-    setTimeout(() => {
-      glassShatter.classList.add('active');
-    }, 200);
     
     // Add sound effect (optional)
     this.playShatterSound();
     
-    // Shake effect on lock screen - longer duration for dramatic effect
-    lockScreen.style.animation = 'shake 0.6s';
+    // Reset shake animation after completion
     setTimeout(() => {
       lockScreen.style.animation = '';
-    }, 600);
+    }, 800);
   }
 
   playShatterSound() {
