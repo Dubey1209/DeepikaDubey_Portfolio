@@ -61,7 +61,6 @@ class PortfolioLock {
     e.preventDefault();
     
     const name = document.getElementById('visitor-name').value.trim();
-    const message = document.getElementById('visitor-message').value.trim();
     
     // Validation
     if (!name) {
@@ -79,8 +78,8 @@ class PortfolioLock {
     btnLoader.style.display = 'inline';
     
     try {
-      // Send visitor data (no email required)
-      await this.sendVisitorData(name, message);
+      // Send visitor data (name only)
+      await this.sendVisitorData(name, 'No message provided');
       
       // Trigger glass shatter animation
       this.triggerGlassShatter();
