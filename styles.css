@@ -6765,3 +6765,525 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
     animation: none !important;
   }
 }
+
+/* Experience Section Styles */
+.experience-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
+}
+
+.experience-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Timeline Line */
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #2a7ae2 0%, #4a9eff 100%);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+/* Experience Cards */
+.experience-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.experience-card:nth-child(1) { animation-delay: 0.2s; }
+.experience-card:nth-child(2) { animation-delay: 0.4s; }
+.experience-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Date Section */
+.experience-date {
+  flex: 0 0 200px;
+  text-align: right;
+  padding-right: 40px;
+  padding-top: 15px;
+}
+
+.experience-year {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2a7ae2;
+  background: rgba(42, 122, 226, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover .experience-year {
+  background: linear-gradient(135deg, #2a7ae2 0%, #4a9eff 100%);
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(42, 122, 226, 0.3);
+}
+
+/* Content Section */
+.experience-content {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  margin-left: 40px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid #2a7ae2;
+  overflow: hidden;
+}
+
+.experience-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(42, 122, 226, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.experience-content::after {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #fff;
+  filter: drop-shadow(-2px 0 2px rgba(0, 0, 0, 0.05));
+}
+
+.experience-card:hover .experience-content {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(42, 122, 226, 0.25);
+  border-color: #1e6bb8;
+}
+
+.experience-card:hover .experience-content::before {
+  left: 100%;
+}
+
+.experience-title {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 6px 0;
+  line-height: 1.3;
+}
+
+.experience-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.company-name {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2a7ae2;
+}
+
+.company-type {
+  font-size: 0.8rem;
+  color: #666;
+  background: rgba(42, 122, 226, 0.05);
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-style: italic;
+}
+
+.experience-description {
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+}
+
+.experience-read-more {
+  background: linear-gradient(135deg, #2a7ae2 0%, #4a9eff 100%);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 12px rgba(42, 122, 226, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-read-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.experience-read-more:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(42, 122, 226, 0.4);
+  background: linear-gradient(135deg, #1e6bb8 0%, #3d8ce8 100%);
+}
+
+.experience-read-more:hover::before {
+  left: 100%;
+}
+
+.experience-read-more span {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.experience-read-more:hover span {
+  transform: translateX(5px);
+}
+
+/* Modal Styles */
+.experience-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.experience-modal.active {
+  display: block;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+  border: 1px solid rgba(42, 122, 226, 0.1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f5f5f5;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
+
+.modal-close:hover {
+  background: #2a7ae2;
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.modal-body h3 {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.modal-body .company-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-body .company-name {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2a7ae2;
+}
+
+.modal-body .company-type {
+  font-size: 1rem;
+  color: #666;
+  background: rgba(42, 122, 226, 0.1);
+  padding: 6px 15px;
+  border-radius: 15px;
+}
+
+.modal-body .experience-period {
+  font-family: 'Bubblegum Sans', sans-serif;
+  font-size: 1rem;
+  color: #2a7ae2;
+  background: rgba(42, 122, 226, 0.1);
+  padding: 6px 15px;
+  border-radius: 15px;
+  margin-left: auto;
+}
+
+.modal-body .full-description {
+  color: #444;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.modal-body .full-description ul {
+  margin: 20px 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.modal-body .full-description li {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.modal-body .full-description li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #2a7ae2;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.modal-body .full-description strong {
+  color: #2a7ae2;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-timeline::before {
+    left: 30px;
+  }
+  
+  .experience-card {
+    flex-direction: column;
+    padding-left: 60px;
+  }
+  
+  .experience-date {
+    flex: none;
+    text-align: left;
+    padding-right: 0;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .experience-content {
+    margin-left: 0;
+    padding: 25px 20px;
+  }
+  
+  .experience-content::before {
+    display: none;
+  }
+  
+  .experience-company {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .modal-content {
+    margin: 20px;
+    padding: 30px 25px;
+  }
+  
+  .modal-body .company-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .modal-body .experience-period {
+    margin-left: 0;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 122, 226, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(42, 122, 226, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 122, 226, 0);
+  }
+}
+
+/* Dark Theme Support for Experience Section */
+body.dark-theme .experience-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+body.dark-theme .experience-content {
+  background: #1e1e2e;
+  border-color: #4a9eff;
+  color: #e0e0e0;
+}
+
+body.dark-theme .experience-title {
+  color: #ffffff;
+}
+
+body.dark-theme .experience-company {
+  color: #b0b0b0;
+}
+
+body.dark-theme .company-name {
+  color: #4a9eff;
+}
+
+body.dark-theme .company-type {
+  color: #888888;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+body.dark-theme .experience-description {
+  color: #cccccc;
+}
+
+body.dark-theme .experience-year {
+  color: #4a9eff;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+body.dark-theme .experience-card:hover .experience-year {
+  background: linear-gradient(135deg, #4a9eff 0%, #6bb6ff 100%);
+  color: #ffffff;
+}
+
+body.dark-theme .experience-timeline::before {
+  background: linear-gradient(180deg, #4a9eff 0%, #6bb6ff 100%);
+}
+
+body.dark-theme .modal-content {
+  background: #1e1e2e;
+  border-color: #4a9eff;
+}
+
+body.dark-theme .modal-body h3 {
+  color: #ffffff;
+}
+
+body.dark-theme .modal-body .company-name {
+  color: #4a9eff;
+}
+
+body.dark-theme .modal-body .company-type {
+  color: #888888;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+body.dark-theme .modal-body .experience-period {
+  color: #4a9eff;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+body.dark-theme .modal-body .full-description {
+  color: #e0e0e0;
+}
+
+body.dark-theme .modal-body .full-description li {
+  color: #cccccc;
+}
+
+body.dark-theme .modal-body .full-description strong {
+  color: #4a9eff;
+}
+
+body.dark-theme .modal-close {
+  background: #2a2a2e;
+  color: #cccccc;
+}
+
+body.dark-theme .modal-close:hover {
+  background: #4a9eff;
+  color: #ffffff;
+}

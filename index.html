@@ -46,6 +46,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#certifications">Certifications</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#fun-facts">Fun Facts</a></li>
         <li><a href="#contact">Contact</a></li>
         <li class="drawer-theme-toggle-li">
@@ -994,6 +995,89 @@
       </div>
     </div>
   </section>
+  
+  <!-- Experience Section -->
+  <section id="experience" class="section experience-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Professional Journey</span>
+        <h2 class="section-title">Work Experience</h2>
+        <div class="section-divider"></div>
+        <p class="section-description">Building products and driving impact through strategic product management</p>
+      </div>
+      
+      <div class="experience-timeline">
+        <!-- Experience 1: Tnumber -->
+        <div class="experience-card" data-experience="tnumber">
+          <div class="experience-date">
+            <span class="experience-year">Current</span>
+          </div>
+          <div class="experience-content">
+            <h3 class="experience-title">Associate Product Management Intern</h3>
+            <div class="experience-company">
+              <span class="company-name">Tnumber</span>
+              <span class="company-type">Communication Platform</span>
+            </div>
+            <p class="experience-description">
+              Led end-to-end execution of product features across web dashboards and mobile applications, coordinating with engineers to deliver usability improvements that resulted in 30% reduction in support tickets.
+            </p>
+            <button class="experience-read-more" onclick="openExperienceModal('tnumber')">
+              Read More <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experience 2: THATha -->
+        <div class="experience-card" data-experience="thatha">
+          <div class="experience-date">
+            <span class="experience-year">Jul 2025 - Nov 2025</span>
+          </div>
+          <div class="experience-content">
+            <h3 class="experience-title">Product Lead Intern</h3>
+            <div class="experience-company">
+              <span class="company-name">THATha Business Development</span>
+              <span class="company-type">Early-stage SaaS Startup</span>
+            </div>
+            <p class="experience-description">
+              Owned roadmap planning and backlog prioritization for a multi-tenant SaaS product, aligning delivery with customer success goals, resulting in 20% increase in user engagement.
+            </p>
+            <button class="experience-read-more" onclick="openExperienceModal('thatha')">
+              Read More <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Experience 3: SDC SI -->
+        <div class="experience-card" data-experience="sdc-si">
+          <div class="experience-date">
+            <span class="experience-year">Aug 2023 - Nov 2023</span>
+          </div>
+          <div class="experience-content">
+            <h3 class="experience-title">Android Developer</h3>
+            <div class="experience-company">
+              <span class="company-name">Software Incubator (SDC SI)</span>
+              <span class="company-type">Mobile Product Development</span>
+            </div>
+            <p class="experience-description">
+              Developed Android UI screens using XML layouts, integrating backend REST APIs to ensure smooth data retrieval and interaction, leading to 10% improvement in app responsiveness.
+            </p>
+            <button class="experience-read-more" onclick="openExperienceModal('sdc-si')">
+              Read More <span>→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Modal -->
+  <div id="experienceModal" class="experience-modal">
+    <div class="modal-overlay" onclick="closeExperienceModal()"></div>
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeExperienceModal()">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
   
   <!-- Fun Facts Section -->
   <section id="fun-facts" class="section fun-facts-section">
