@@ -7144,7 +7144,7 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
 .unlock-form {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .form-group {
@@ -7154,12 +7154,12 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.5rem 0.8rem;
+  padding: 0.4rem 0.7rem;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
@@ -7229,15 +7229,15 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
   background: linear-gradient(45deg, #2a7ae2, #a259ff);
   border: none;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  margin-top: 0.2rem;
+  margin-top: 0.1rem;
 }
 
 .unlock-btn:hover {

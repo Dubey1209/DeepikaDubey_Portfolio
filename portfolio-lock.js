@@ -24,7 +24,7 @@ class PortfolioLock {
     // Form submission
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.handleUnlock();
+      this.handleSubmit(e);
     });
 
     // Message checkbox toggle
@@ -57,52 +57,45 @@ class PortfolioLock {
     });
   }
 
-  async handleUnlock() {
+  async handleSubmit(e) {
+    e.preventDefault();
+    
     const name = document.getElementById('visitor-name').value.trim();
-    const email = document.getElementById('visitor-email').value.trim();
     const message = document.getElementById('visitor-message').value.trim();
-    const wantsMessage = document.getElementById('wants-message').checked;
-
-    // Validate inputs
-    if (!name || !email) {
-      this.showError('Please fill in all required fields');
+    
+    // Validation
+    if (!name) {
+      this.showError('Please enter your name');
       return;
     }
-
-    if (!this.isValidEmail(email)) {
-      this.showError('Please enter a valid email address');
-      return;
-    }
-
+    
+    const btn = e.target.querySelector('.unlock-btn');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoader = btn.querySelector('.btn-loader');
+    
     // Show loading state
-    this.setLoadingState(true);
-
+    btn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline';
+    
     try {
-      // Send data to email service
-      await this.sendVisitorData(name, email, message);
+      // Send visitor data (no email required)
+      await this.sendVisitorData(name, message);
       
       // Trigger glass shatter animation
       this.triggerGlassShatter();
       
-      // Mark as unlocked in session
-      sessionStorage.setItem(this.sessionKey, 'true');
-      
-      // Show success message
-      this.showSuccess(`Welcome to my portfolio, ${name}! 🎉`);
-      
       // Unlock portfolio after animation
       setTimeout(() => {
-        this.unlockPortfolio(true);
-      }, 1500);
-
+        this.unlockPortfolio();
+        this.showSuccess(`Thank you ${name}! Portfolio unlocked successfully! 🎉`);
+      }, 2000);
+      
     } catch (error) {
-      console.error('Error sending visitor data:', error);
-      // Still unlock portfolio even if email fails
-      this.triggerGlassShatter();
-      sessionStorage.setItem(this.sessionKey, 'true');
-      setTimeout(() => {
-        this.unlockPortfolio(true);
-      }, 1500);
+      this.showError('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoader.style.display = 'none';
     }
   }
 
@@ -130,7 +123,6 @@ class PortfolioLock {
   async sendVisitorData(name, email, message) {
     const data = {
       name: name,
-      email: email,
       message: message || 'No message provided',
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent,
@@ -138,8 +130,8 @@ class PortfolioLock {
     };
 
     try {
-      // Using Formspree alternative - more reliable
-      const response = await fetch('https://formspree.io/f/mkgjzvbl', {
+      // Using Formcarry - most reliable with your details
+      const response = await fetch('https://formcarry.com/s/stV_oddEgaZ', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,24 +139,21 @@ class PortfolioLock {
         },
         body: JSON.stringify({
           name: name,
-          email: email,
-          message: `Portfolio Visitor Notification:\n\nName: ${name}\nEmail: ${email}\nMessage: ${message || 'No message provided'}\nTime: ${new Date().toLocaleString()}\nPage: Portfolio Homepage\nBrowser: ${navigator.userAgent}`,
-          _subject: 'New Portfolio Visitor! 🎉'
+          message: `Portfolio Visitor Notification:\n\nName: ${name}\nMessage: ${message || 'No message provided'}\nTime: ${new Date().toLocaleString()}\nPage: Portfolio Homepage\nBrowser: ${navigator.userAgent}`,
+          subject: 'New Portfolio Visitor! 🎉'
         })
       });
 
       if (!response.ok) {
-        throw new Error('Email service error');
+        throw new Error('Formcarry error');
       }
 
       return await response.json();
     } catch (error) {
-      console.log('Email service error, trying alternative...');
-      
-      // Fallback: Log to console and show success
+      console.log('Formcarry error, logging data...');
       console.log('Portfolio Visitor Data:', data);
       
-      // Return success even if email fails
+      // Always return success for smooth UX
       return { success: true, message: 'Data logged successfully' };
     }
   }
