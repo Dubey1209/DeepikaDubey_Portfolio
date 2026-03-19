@@ -526,9 +526,14 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
 
 .contact-form input, .contact-form textarea {
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(42, 122, 226, 0.5) !important;
   border-radius: 5px;
   font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 2px rgba(42, 122, 226, 0.1);
+  outline: 1px solid rgba(42, 122, 226, 0.3) !important;
+  color: #666 !important;
 }
 
 .contact-form button {
@@ -541,6 +546,21 @@ h3, .about-headline, .contact-info-title, .contact-form-title {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.2s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  outline: 1px solid rgba(42, 122, 226, 0.4) !important;
+  border-color: #a259ff !important;
+  box-shadow: 0 0 4px rgba(42, 122, 226, 0.2);
+  background: rgba(255, 255, 255, 1);
+  color: #333 !important;
+}
+
+.contact-form input:hover, .contact-form textarea:hover {
+  outline: 1px solid rgba(42, 122, 226, 0.4) !important;
+  border-color: #a259ff !important;
+  box-shadow: 0 0 3px rgba(42, 122, 226, 0.15);
+  color: #333 !important;
 }
 
 .contact-form button:hover {
@@ -7167,6 +7187,11 @@ body.page-loaded .home-left > :nth-child(5) { transition-delay: 320ms; }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #999999 !important;
 }
 
 .form-group input:focus,
