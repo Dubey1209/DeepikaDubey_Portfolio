@@ -1179,6 +1179,91 @@ body.dark-theme .thought-bubble::after {
   transform: translateY(0);
 }
 
+/* Skill Persona Popup - Insane Feature */
+.skill-card-pm {
+  position: relative !important;
+}
+
+.skill-persona-popup {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 280px;
+  background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+  color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
+  margin-left: 1rem;
+  pointer-events: none;
+}
+
+.skill-persona-popup::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -8px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 8px 8px 0;
+  border-color: transparent #2a7ae2 transparent transparent;
+}
+
+.skill-persona-popup::after {
+  content: '💭';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+}
+
+.skill-card-pm:hover .skill-persona-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(10px);
+}
+
+/* Responsive adjustments for skill persona */
+@media (max-width: 1200px) {
+  .skill-persona-popup {
+    width: 240px;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .skill-persona-popup {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    width: 90%;
+    max-width: 400px;
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-persona-popup::before {
+    display: none;
+  }
+  
+  .skill-card-pm:hover .skill-persona-popup {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 /* Very subtle "alive" polish when Skills section is visible */
 html.js .skills-section.visible .skill-card-pm {
   animation: fadeInUp 0.6s forwards, skillCardBreathe 7s ease-in-out 1.2s infinite;

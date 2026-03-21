@@ -17,6 +17,7 @@
   <link rel="icon" type="image/jpeg" href="ProfilePhoto.jpeg">
   <link rel="stylesheet" href="styles.css">
   <script src="portfolio-lock.js" defer></script>
+  <script src="skill-persona.js" defer></script>
 </head>
 <body>
     <!-- Portfolio Lock Screen -->
@@ -693,7 +694,7 @@
       
       <div class="skills-cards-row">
         <!-- Product Strategy & Planning Card -->
-        <div class="skill-card-pm" style="--delay: 1">
+        <div class="skill-card-pm" style="--delay: 1; position: relative;">
           <div class="skill-card-header">
             <div class="skill-card-icon">🎯</div>
             <h3>Strategy & Planning</h3>
@@ -708,10 +709,31 @@
             <span class="skill-tag">Business Models</span>
             <span class="skill-tag">Strategic Planning</span>
           </div>
+          <div style="
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 250px;
+            background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            margin-left: 20px;
+            box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
+          " onmouseover="this.style.opacity='1'; this.style.visibility='visible'; this.style.transform='translateY(-50%) translateX(10px)';" onmouseout="this.style.opacity='0'; this.style.visibility='hidden'; this.style.transform='translateY(-50%)';">
+            <span style="position: absolute; top: -10px; right: 10px; font-size: 20px; opacity: 0.7;">💭</span>
+            I'm your strategic compass! I help Deepika create winning product strategies and build roadmaps that lead to success!
+          </div>
         </div>
 
         <!-- Product Execution & Delivery Card -->
-        <div class="skill-card-pm" style="--delay: 2">
+        <div class="skill-card-pm" style="--delay: 2" data-skill-persona="I'm the execution engine! I turn Deepika's brilliant ideas into reality through agile processes, sprint planning, and flawless delivery. I make sure products ship on time and exceed expectations!">
           <div class="skill-card-header">
             <div class="skill-card-icon">⚡</div>
             <h3>Execution & Delivery</h3>
@@ -726,10 +748,15 @@
             <span class="skill-tag">Stakeholder Management</span>
             <span class="skill-tag">Cross-functional Collaboration</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the execution engine! I turn Deepika's brilliant ideas into reality through agile processes, sprint planning, and flawless delivery. I make sure products ship on time and exceed expectations!</div>
+          </div>
         </div>
 
         <!-- Product Analytics & Growth Card -->
-        <div class="skill-card-pm" style="--delay: 3">
+        <div class="skill-card-pm" style="--delay: 3" data-skill-persona="I'm the growth detective! I help Deepika uncover user insights, run experiments, and analyze data to make products better. I transform numbers into stories that drive product success!">
           <div class="skill-card-header">
             <div class="skill-card-icon">📊</div>
             <h3>Analytics & Growth</h3>
@@ -744,12 +771,17 @@
             <span class="skill-tag">Growth Hacking</span>
             <span class="skill-tag">User Testing</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the growth detective! I help Deepika uncover user insights, run experiments, and analyze data to make products better. I transform numbers into stories that drive product success!</div>
+          </div>
         </div>
       </div>
 
       <div class="skills-cards-row">
         <!-- Design & UX -->
-        <div class="skill-card-pm" style="--delay: 4">
+        <div class="skill-card-pm" style="--delay: 4" data-skill-persona="I'm the creative heartbeat! I help Deepika design beautiful, intuitive experiences that users love. I turn ideas into stunning visuals and smooth interactions that make products delightful!">
           <div class="skill-card-header">
             <div class="skill-card-icon">🎨</div>
             <h3>Design & UX</h3>
@@ -762,10 +794,15 @@
             <span class="skill-tag">Prototyping</span>
             <span class="skill-tag">User Flows</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the creative heartbeat! I help Deepika design beautiful, intuitive experiences that users love. I turn ideas into stunning visuals and smooth interactions that make products delightful!</div>
+          </div>
         </div>
 
         <!-- Mobile Development -->
-        <div class="skill-card-pm" style="--delay: 5">
+        <div class="skill-card-pm" style="--delay: 5" data-skill-persona="I'm the mobile architect! I help Deepika build powerful Android apps that users can't put down. I turn code into smooth, responsive experiences that work perfectly on every device!">
           <div class="skill-card-header">
             <div class="skill-card-icon">📱</div>
             <h3>Mobile Development</h3>
@@ -776,10 +813,15 @@
             <span class="skill-tag">Jetpack Compose</span>
             <span class="skill-tag">XML UI</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the mobile architect! I help Deepika build powerful Android apps that users can't put down. I turn code into smooth, responsive experiences that work perfectly on every device!</div>
+          </div>
         </div>
 
         <!-- Web Development -->
-        <div class="skill-card-pm" style="--delay: 6">
+        <div class="skill-card-pm" style="--delay: 6" data-skill-persona="I'm the web wizard! I help Deepika create stunning websites and web applications that captivate users. I transform ideas into interactive experiences that work beautifully across all browsers!">
           <div class="skill-card-header">
             <div class="skill-card-icon">🌐</div>
             <h3>Web Development</h3>
@@ -789,10 +831,15 @@
             <span class="skill-tag">CSS3</span>
             <span class="skill-tag">JavaScript</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the web wizard! I help Deepika create stunning websites and web applications that captivate users. I transform ideas into interactive experiences that work beautifully across all browsers!</div>
+          </div>
         </div>
 
         <!-- Programming Languages -->
-        <div class="skill-card-pm" style="--delay: 7">
+        <div class="skill-card-pm" style="--delay: 7" data-skill-persona="I'm the language master! I help Deepika speak fluently with computers through multiple programming languages. I'm the bridge between human ideas and machine execution!">
           <div class="skill-card-header">
             <div class="skill-card-icon">💻</div>
             <h3>Programming</h3>
@@ -803,10 +850,15 @@
             <span class="skill-tag">Python</span>
             <span class="skill-tag">C</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the language master! I help Deepika speak fluently with computers through multiple programming languages. I'm the bridge between human ideas and machine execution!</div>
+          </div>
         </div>
 
         <!-- Version Control -->
-        <div class="skill-card-pm" style="--delay: 8">
+        <div class="skill-card-pm" style="--delay: 8" data-skill-persona="I'm the time traveler! I help Deepika track every change, collaborate seamlessly, and never lose work. I'm the safety net that ensures code evolution is always under control!">
           <div class="skill-card-header">
             <div class="skill-card-icon">📚</div>
             <h3>Version Control</h3>
@@ -815,10 +867,15 @@
             <span class="skill-tag">Git</span>
             <span class="skill-tag">GitHub</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the time traveler! I help Deepika track every change, collaborate seamlessly, and never lose work. I'm the safety net that ensures code evolution is always under control!</div>
+          </div>
         </div>
 
         <!-- Product Management Tools -->
-        <div class="skill-card-pm" style="--delay: 9">
+        <div class="skill-card-pm" style="--delay: 9" data-skill-persona="I'm the Swiss Army knife! I'm Deepika's complete toolkit for product success. From JIRA to Notion, I provide all the tools needed to manage products like a pro!">
           <div class="skill-card-header">
             <div class="skill-card-icon">🛠️</div>
             <h3>Product Management Tools</h3>
@@ -834,16 +891,84 @@
             <span class="skill-tag">Loom</span>
             <span class="skill-tag">Confluence</span>
           </div>
+          <div class="skill-persona-popup" style="display: none;">
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">I'm the Swiss Army knife! I'm Deepika's complete toolkit for product success. From JIRA to Notion, I provide all the tools needed to manage products like a pro!</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
   <script>
-  // All interactivity is now centralized in script.js
+    // Simple Skill Persona Hover - Direct CSS Approach
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Setting up simple skill persona hover...');
+      
+      const style = document.createElement('style');
+      style.textContent = `
+        .skill-card-pm {
+          position: relative !important;
+        }
+        
+        .skill-persona-popup {
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          transform: translateY(-50%);
+          width: 280px;
+          background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+          color: white;
+          padding: 1rem;
+          border-radius: 12px;
+          font-size: 0.85rem;
+          line-height: 1.4;
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 1000;
+          box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
+          margin-left: 1rem;
+          pointer-events: none;
+        }
+        
+        .skill-persona-popup::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          transform: translateY(-50%);
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 8px 8px 8px 0;
+          border-color: transparent #2a7ae2 transparent transparent;
+        }
+        
+        .skill-persona-popup .popup-emoji {
+          position: absolute;
+          top: -10px;
+          right: 10px;
+          font-size: 1.2rem;
+          opacity: 0.7;
+        }
+        
+        .skill-card-pm:hover .skill-persona-popup {
+          opacity: 1 !important;
+          visibility: visible !important;
+          transform: translateY(-50%) translateX(10px) !important;
+        }
+        
+        .skill-card-pm:hover {
+          box-shadow: 0 15px 35px rgba(42, 122, 226, 0.15) !important;
+          transform: translateY(-5px) scale(1.02) !important;
+        }
+      `;
+      document.head.appendChild(style);
+      
+      console.log('Skill persona CSS added successfully!');
+    });
   </script>
-  <script>
-  // All interactivity is now centralized in script.js
-</script>
   <section id="certifications" class="section certifications-section">
     <div class="container">
       <h2 class="certifications-title">Certifications</h2>
@@ -1350,15 +1475,91 @@
     <div class="scroll-arrow"></div>
   </div>
 
+  <script src="portfolio-lock.js"></script>
   <script src="theme-toggle.js"></script>
   <script src="script.js"></script>
-  <script src="animations.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/theme-toggle.js"></script>
-  <!-- EmailJS Script -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    // Initialize EmailJS with your Public Key
+    // Skill Persona Feature - Direct Implementation
+    console.log('Setting up Skill Persona directly...');
+    
+    function setupSkillPersona() {
+      const skillCards = document.querySelectorAll('.skill-card-pm');
+      console.log('Found skill cards:', skillCards.length);
+      
+      skillCards.forEach((card, index) => {
+        const persona = card.getAttribute('data-skill-persona');
+        console.log(`Card ${index + 1}:`, persona ? 'Has persona' : 'No persona');
+        
+        if (persona) {
+          // Create popup
+          const popup = document.createElement('div');
+          popup.className = 'skill-persona-popup';
+          popup.innerHTML = `
+            <div class="popup-arrow"></div>
+            <div class="popup-emoji">💭</div>
+            <div class="popup-text">${persona}</div>
+          `;
+          
+          // Add styles
+          popup.style.cssText = `
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%);
+            width: 280px;
+            background: linear-gradient(135deg, #2a7ae2 0%, #a259ff 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(42, 122, 226, 0.3);
+            margin-left: 1rem;
+            pointer-events: none;
+          `;
+          
+          // Add to card
+          card.appendChild(popup);
+          console.log(`Popup added to card ${index + 1}`);
+          
+          // Add hover events
+          card.addEventListener('mouseenter', () => {
+            console.log(`Hover on card ${index + 1}`);
+            popup.style.opacity = '1';
+            popup.style.visibility = 'visible';
+            popup.style.transform = 'translateY(-50%) translateX(10px)';
+            card.style.boxShadow = '0 15px 35px rgba(42, 122, 226, 0.15)';
+            card.style.transform = 'translateY(-5px) scale(1.02)';
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            console.log(`Left card ${index + 1}`);
+            popup.style.opacity = '0';
+            popup.style.visibility = 'hidden';
+            popup.style.transform = 'translateY(-50%)';
+            card.style.boxShadow = '';
+            card.style.transform = '';
+          });
+        }
+      });
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupSkillPersona);
+    } else {
+      setupSkillPersona();
+    }
+    
+    // Also try after delay
+    setTimeout(setupSkillPersona, 500);
+    setTimeout(setupSkillPersona, 1000);
+  </script>
+  <script>
     (function() {
       emailjs.init('tKGsj-T6YjYbG5zcA');
     })();
